@@ -1,0 +1,19 @@
+{
+    "name": "nomadwetubeclone",
+    "version": "1.0.0",
+    "description": "노마드코더 강의 : wetube 강의 기록 및 클론용 레포지토리",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/MayOwall/nomadWetubeClone.git"
+    },
+    "author": "MayOwall<pixartive@gmail.com>",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/MayOwall/nomadWetubeClone/issues"
+    },
+    "homepage": "https://github.com/MayOwall/nomadWetubeClone#readme"
+}
