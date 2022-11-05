@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "노마드코더 강의 : wetube 강의 기록 및 클론용 레포지토리",
     "scripts": {
-        "dev": "nodemon --exec babel-node index"
+        "dev": "nodemon --exec babel-node src/server.js"
     },
     "repository": {
         "type": "git",
