@@ -1,20 +1,11 @@
 import express from "express";
+import morgan from "morgan";
 
-// cf. port 4000을 쓰는 것이 백엔드의 관습이라고 한다.
 const PORT = 4000;
 const app = express();
+// morgan()은 자동으로 next()를 호출하므로, 따로 next()를 적어 줄 필요가 없다ㅏ.
+const logger = morgan("dev");
 
-const routerLogger = (req, res, next) => {
-    console.log(`✅ : Path is ${req.path}`);
-    next();
-};
-
-const methodLogger = (req, res, next) => {
-    console.log(`✅ : Method type is ${req.method}`);
-    next();
-};
-
-// 관습적으로 middleware가 아닌 마지막 controller에는 next()를 적어주지 않는다.
 const home = (req, res) => {
     res.send("<h1>Hello, Welcome to homepage \\( ˙▿˙ )/</h1>");
 };
@@ -25,7 +16,7 @@ const login = (req, res) => {
 const handleListening = () =>
     console.log(`🚀 : Server is listening on port ${PORT} (ว˙∇˙)ง`);
 
-app.use(methodLogger, routerLogger);
+app.use(logger);
 app.get("/", home);
 app.get("/login", login);
 app.listen(PORT, handleListening);
