@@ -4,13 +4,11 @@ import express from "express";
 const PORT = 4000;
 const app = express();
 
-const handleHome = (req, res) => {
-    return res.send("<h1>Hello, welcome to homepage \\( ˙▿˙ )/</h1>");
-};
+const home = (req, res) =>
+    res.send("<h1>Hello, welcome to homepage \\( ˙▿˙ )/</h1>");
 
-const handleListening = () => {
+const handleListening = () =>
     console.log(`🚀 : Server is listening on port ${PORT} (ว˙∇˙)ง`);
-};
 
-app.get("/", handleHome);
+app.get("/", home);
 app.listen(PORT, handleListening);
