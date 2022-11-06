@@ -3,20 +3,34 @@ import morgan from "morgan";
 
 const PORT = 4000;
 const app = express();
-// morgan()은 자동으로 next()를 호출하므로, 따로 next()를 적어 줄 필요가 없다ㅏ.
 const logger = morgan("dev");
 
-const home = (req, res) => {
-    res.send("<h1>Hello, Welcome to homepage \\( ˙▿˙ )/</h1>");
-};
+app.use(logger);
 
-const login = (req, res) => {
-    res.send(`<h1>Hello, Welcome to login page ( ´ ▽ \` )ﾉ</h1>`);
+// Routers
+const globalRouter = express.Router();
+const handleHome = (req, res) => {
+    res.send("Home");
 };
+globalRouter.get("/", handleHome);
+
+const userRouter = express.Router();
+const handleEditUser = (req, res) => {
+    res.send("Edit-user");
+};
+userRouter.get("/edit", handleEditUser);
+
+const videoRouter = express.Router();
+const handleWatchVideo = (req, res) => {
+    res.send("Watch-video");
+};
+videoRouter.get("/watch", handleWatchVideo);
+
+app.use("/", globalRouter);
+app.use("/users", userRouter);
+app.use("/videos", videoRouter);
+
 const handleListening = () =>
     console.log(`🚀 : Server is listening on port ${PORT} (ว˙∇˙)ง`);
 
-app.use(logger);
-app.get("/", home);
-app.get("/login", login);
 app.listen(PORT, handleListening);
