@@ -1,11 +1,9 @@
 import express from "express";
+import { handleEdit, handleDelete } from "../controllers/userController";
 
 const userRouter = express.Router();
 
-const handleEditUser = (req, res) => {
-    res.send("<h1>Welcome to page user-edit ( ⸝⸝•ᴗ•⸝⸝ )੭⁾⁾</h1>");
-};
-
-userRouter.get("/edit", handleEditUser);
+userRouter.get("/edit", handleEdit);
+userRouter.get("/delete", handleDelete);
 
 export default userRouter;
