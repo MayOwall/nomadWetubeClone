@@ -5,7 +5,7 @@ const app = express();
 
 const handleHome = (req, res) => {
     console.log("someone is approaching to home");
-    return res.send("hello from server to home");
+    return res.send({ message: "hello from here" });
 };
 
 const handleListening = () => {
