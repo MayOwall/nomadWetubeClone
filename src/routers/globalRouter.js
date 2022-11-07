@@ -6,7 +6,7 @@ const globalRouter = express.Router();
 
 // 홈페이지 컨트롤러는 어디에 두는게 맞으려나..,,
 const handleHome = (req, res) => {
-    res.send("<h1>Welcome to page global-home ( ⸝⸝•ᴗ•⸝⸝ )੭⁾⁾</h1>");
+    return res.send("<h1>Welcome to page global-home ( ⸝⸝•ᴗ•⸝⸝ )੭⁾⁾</h1>");
 };
 
 globalRouter.get("/", handleHome);
