@@ -1,8 +1,0 @@
-# 1.4 What is NPM
-
-> NPM이란 무엇인가
-
-NodeJS를 설치할 때 기본적으로 같이 설치되는 프로그램.
-각종 Dependencies를 설치하는데 필요한 패키지 매니저이다.
-
-npm과 yarn 사이의 차이점은 거의 없다.
