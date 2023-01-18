@@ -4,17 +4,23 @@ import morgan from "morgan";
 const PORT = 4000;
 const app = express();
 
-const handleHome = (req, res) => {
-  return res.send("<h1>Hello, this is <u>HOME</u> page</h1>");
-};
-
-const handleLogin = (req, res) => {
-  return res.send("<h1>hello, this is <u>LOGIN</u> page</h1>");
-};
-
 app.use(morgan("dev"));
-app.get("/", handleHome);
-app.get("/login", handleLogin);
+
+const globalRouter = express.Router();
+const handleHome = (req, res) => res.send("HOME");
+globalRouter.get("/", handleHome);
+
+const userRouter = express.Router();
+const handleUser = (req, res) => res.send("USER - EDIT");
+userRouter.get("/edit", handleUser);
+
+const videoRouter = express.Router();
+const handleVideo = (req, res) => res.send("VIDEO - WATCH");
+videoRouter.get("/watch", handleVideo);
+
+app.use("/", globalRouter);
+app.use("/video", videoRouter);
+app.use("/user", userRouter);
 
 const handleListening = () =>
   console.log(`Server listening on port ${PORT} 🚀`);
