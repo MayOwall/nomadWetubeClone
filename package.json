@@ -2,15 +2,20 @@
   "name": "nomadwetubeclone",
   "version": "1.0.0",
   "description": "nomad clone coding",
-  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MayOwall/nomadWetubeClone.git"
+  },
+  "scripts": {
+    "start": "node index.js"
   },
   "author": "MayOwall<pixartive@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/MayOwall/nomadWetubeClone/issues"
   },
-  "homepage": "https://github.com/MayOwall/nomadWetubeClone#readme"
+  "homepage": "https://github.com/MayOwall/nomadWetubeClone#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
