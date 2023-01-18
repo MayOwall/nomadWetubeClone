@@ -4,11 +4,11 @@ const PORT = 4000;
 const app = express();
 
 const handleHome = (req, res) => {
-  return res.send("Hello, this is home page");
+  return res.send("<h1>Hello, this is <u>HOME</u> page</h1>");
 };
 
 const handleLogin = (req, res) => {
-  return res.send("hello, this is login page");
+  return res.send("<h1>hello, this is <u>LOGIN</u> page</h1>");
 };
 
 app.get("/", handleHome);
