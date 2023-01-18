@@ -7,7 +7,7 @@
     "url": "git+https://github.com/MayOwall/nomadWetubeClone.git"
   },
   "scripts": {
-    "dev": "nodemon --exec babel-node index.js"
+    "dev": "nodemon --exec babel-node src/index.js"
   },
   "author": "MayOwall<pixartive@gmail.com>",
   "license": "ISC",
