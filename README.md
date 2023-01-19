@@ -9,15 +9,16 @@
 /login => Login
 /search => Search
 
-### users router
+### user router
 
-/users/edit => Edit user
-/users/delete => Delete user
+/user/:id => see user
+/user/logout => Log outu
+/user/edit => Edit MY user
+/user/delete => Delete MYuser
 
-### videos router
+### video router
 
-/videos/watch => Watch Video
-/videos/edit => Edit Video
-/videos/delete => Delete Video
-/videos/comments => Comment on a video
-/videos/comments/delete => Delete a Comment of a Video
+/video/:id => Watch Video
+/video/:id/edit => Edit Video
+/video/:id/remove => Remove Video
+/video/upload => Upload video
