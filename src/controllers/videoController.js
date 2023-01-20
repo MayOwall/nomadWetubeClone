@@ -1,9 +1,29 @@
 export const handleTrending = (req, res) => {
   const videos = [
-    { title: "hello" },
-    { title: "from" },
-    { title: "trending" },
-    { title: "videos" },
+    {
+      id: 1,
+      title: "hello",
+      rating: 5,
+      comments: 2,
+      createdAt: "2022-12-11",
+      views: 59,
+    },
+    {
+      id: 2,
+      title: "from",
+      rating: 5,
+      comments: 2,
+      createdAt: "2022-12-12",
+      views: 59,
+    },
+    {
+      id: 3,
+      title: "trending",
+      rating: 5,
+      comments: 2,
+      createdAt: "2022-12-13",
+      views: 59,
+    },
   ];
   return res.render("home", { pageTitle: "Home", videos });
 };

@@ -1,9 +1,10 @@
 extends base.pug
+include mixins/video
 
 block content
   h2 Welcome here! We're ready for the trending videos at here
   ul
   each video in videos 
-    li=video.title
+    +video(video)
   else
     div sorry no videos
