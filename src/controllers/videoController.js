@@ -5,7 +5,7 @@ let videos = [
     rating: 5,
     comments: 2,
     createdAt: "2022-12-11",
-    views: 59,
+    views: 1,
   },
   {
     id: 2,
@@ -32,6 +32,7 @@ export const handleWatch = (req, res) => {
   const video = videos[id - 1];
   return res.render("watch", {
     pageTitle: `Watching ${video.title}`,
+    video,
   });
 };
 export const handleSearch = (req, res) => res.send("SEARCH");
