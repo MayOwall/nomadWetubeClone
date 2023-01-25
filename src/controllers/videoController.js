@@ -35,8 +35,9 @@ export const handleWatch = (req, res) => {
     video,
   });
 };
-export const handleSearch = (req, res) => res.send("SEARCH");
-export const handleUpload = (req, res) =>
-  res.render("edit", { pageTitle: "Video - Edit" });
-export const handleEdit = (req, res) => res.send("VIDEO - EDIT");
-export const handleRemove = (req, res) => res.send("VIDEO - DELETE");
+export const getEdit = (req, res) => {
+  const { id } = req.params;
+  const video = videos[id - 1];
+  return res.render("edit", { pageTitle: `Editing: ${video.title}`, video });
+};
+export const postEdit = (req, res) => {};
