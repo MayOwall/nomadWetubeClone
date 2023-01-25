@@ -27,7 +27,7 @@ let videos = [
 
 export const handleTrending = (req, res) =>
   res.render("home", { pageTitle: "Home", videos });
-export const handleWatch = (req, res) => {
+export const getWatch = (req, res) => {
   const { id } = req.params;
   const video = videos[id - 1];
   return res.render("watch", {
