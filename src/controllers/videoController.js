@@ -32,15 +32,16 @@ export const postUpload = async (req, res) => {
     await Video.create({
       title,
       description,
-      createdAt: Date.now(),
       hashTags: hashTags.split(","),
-      meta: {
-        views: 0,
-        rating: 0,
-      },
     });
+    return res.redirect("/");
   } catch (e) {
     console.log(e);
+    return res.render("upload", {
+      pageTitle: "Upload Video",
+      errorMessage: e._message,
+    });
   }
-  return res.redirect("/");
 };
+
+// 아아아아 지루하다아아ㅏ아아 그리고 나 겨드랑이에서 암내 나는 것 같아아ㅏ아아ㅏ 으아 시러어어ㅓ어
