@@ -27,9 +27,17 @@ export const getEdit = async (req, res) => {
   return res.render("edit", { pageTitle: `Edit : ${video.title}`, video });
 };
 
-export const postEdit = (req, res) => {
+export const postEdit = async (req, res) => {
   const { id } = req.params;
-  const { title } = req.body;
+  const { title, description, hashTags } = req.body;
+  const video = await Video.findById(id);
+  if (!video) {
+    return res.render("404", { pageTitle: "404 : Video not Found" });
+  }
+  video.title = title;
+  video.description = description;
+  video.hashTags = hashTags.split(",");
+  await video.save();
   return res.redirect(`/video/${id}`);
 };
 
