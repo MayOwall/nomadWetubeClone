@@ -2,6 +2,7 @@ import Video from "../models/Video";
 
 export const getHome = async (req, res) => {
   const videos = await Video.find({});
+  console.log(videos);
   return res.render("home", { pageTitle: "Home", videos });
 };
 
@@ -25,17 +26,21 @@ export const getUpload = (req, res) => {
   return res.render("upload", { pageTitle: "Upload Video" });
 };
 
-export const postUpload = (req, res) => {
+export const postUpload = async (req, res) => {
   const { title, description, hashTags } = req.body;
-  const video = new Video({
-    title,
-    description,
-    createdAt: Date.now(),
-    hashTags: hashTags.split(","),
-    meta: {
-      views: 0,
-      rating: 0,
-    },
-  });
+  try {
+    await Video.create({
+      title,
+      description,
+      createdAt: Date.now(),
+      hashTags: hashTags.split(","),
+      meta: {
+        views: 0,
+        rating: 0,
+      },
+    });
+  } catch (e) {
+    console.log(e);
+  }
   return res.redirect("/");
 };
