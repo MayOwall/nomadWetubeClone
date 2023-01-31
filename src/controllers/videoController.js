@@ -6,9 +6,12 @@ export const getHome = async (req, res) => {
   return res.render("home", { pageTitle: "Home", videos });
 };
 
-export const getWatch = (req, res) => {
+export const getWatch = async (req, res) => {
+  const { id } = req.params;
+  const video = await Video.findById(id);
   return res.render("watch", {
-    pageTitle: `Watching `,
+    pageTitle: video.title,
+    video,
   });
 };
 
