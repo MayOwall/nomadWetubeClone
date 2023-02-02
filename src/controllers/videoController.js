@@ -2,7 +2,6 @@ import Video from "../models/Video";
 
 export const getHome = async (req, res) => {
   const videos = await Video.find({});
-  console.log(videos);
   return res.render("home", { pageTitle: "Home", videos });
 };
 
@@ -52,7 +51,7 @@ export const postUpload = async (req, res) => {
     await Video.create({
       title,
       description,
-      hashTags: hashTags.split(","),
+      hashTags: hashTags,
     });
     return res.redirect("/");
   } catch (e) {

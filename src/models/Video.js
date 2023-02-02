@@ -11,5 +11,9 @@ const videoSchema = new mongoose.Schema({
   },
 });
 
+videoSchema.pre("save", async function () {
+  this.hashTags = this.hashTags[0].split(",");
+});
+
 const Video = mongoose.model("Video", videoSchema);
 export default Video;
