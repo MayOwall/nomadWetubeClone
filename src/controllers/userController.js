@@ -21,16 +21,42 @@ export const postJoin = async (req, res) => {
       errorMessage: "This username / email is already taken",
     });
   }
-  await User.create({
-    name,
-    username,
-    email,
-    password,
-    location,
-  });
+
+  try {
+    await User.create({
+      name,
+      username,
+      email,
+      password,
+      location,
+    });
+  } catch (e) {
+    console.log(e);
+    return res.render("join", {
+      pageTitle,
+      errorMessage: "something got wrong between server",
+    });
+  }
+
   res.redirect("/login");
 };
-export const login = (req, res) => res.send("LOGIN");
+export const getLogin = (req, res) => {
+  return res.render("login", { pageTitle: "Login" });
+};
+export const postLogin = async (req, res) => {
+  const pageTitle = "Login";
+  const { username, password } = req.body;
+  const exists = await User.exists({ username });
+  if (!exists) {
+    return res
+      .status(400)
+      .render("login", {
+        pageTitle,
+        errorMessage: "Please check the username",
+      });
+  }
+  res.end();
+};
 export const handleLogout = (req, res) => res.send("LOGOUT");
 export const handleSee = (req, res) => res.send("SEE");
 export const handleEdit = (req, res) => res.send("USER - EDIT");
