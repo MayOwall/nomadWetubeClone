@@ -1,5 +1,5 @@
-import globalRouter from "./globalRouter";
+import rootRouter from "./rootRouter";
 import userRouter from "./userRouter";
 import videoRouter from "./videoRouter";
 
-export { globalRouter, userRouter, videoRouter };
+export { rootRouter, userRouter, videoRouter };
